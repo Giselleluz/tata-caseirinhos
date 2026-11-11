@@ -105,31 +105,35 @@ function renderMenu(){
     <div class="opt" data-kind="trad" data-tipo="${tab}" data-id="${id}">${head(precoSabor(tab,b,0), g.prefix+nome)}</div>`).join("");
 
   const cob = COBERTURAS.map(c=>`
-    <div class="opt" data-kind="cob" data-tipo="${tab}" data-cob="${esc(c)}">${head(pUm, `${base} com ${c.toLowerCase()}`)}
-      <div class="sel"><select class="sab" aria-label="Sabor do bolo com ${esc(c.toLowerCase())}">${saborOpts}</select></div>
+    <div class="opt" data-kind="cob" data-tipo="${tab}" data-cob="${esc(c)}">${head(pUm, `Cobertura de ${c.toLowerCase()}`)}
+      <div class="sel"><select class="sab" aria-label="Sabor do bolo com ${esc(c.toLowerCase())}">${saborOpts}</select><small class="msg" hidden></small></div>
     </div>`).join("");
 
   const duas = g.maxCoberturas>1 ? `
-    <div class="cat"><h3>Duas coberturas</h3>
+    <div class="cat" id="sec-duas"><h3>Duas coberturas</h3><p class="info">Escolha o sabor do bolo e as duas coberturas.</p>
       <div class="opt" data-kind="duas" data-tipo="${tab}">${head(g.precos[2], `${base} com duas coberturas`)}
         <div class="sel">
           <select class="sab" aria-label="Sabor do bolo">${saborOpts}</select>
           <select class="c1" aria-label="Primeira cobertura"><option value="">1ª cobertura</option>${opts(COBERTURAS)}</select>
           <select class="c2" aria-label="Segunda cobertura"><option value="">2ª cobertura</option>${opts(COBERTURAS)}</select>
+          <small class="msg" hidden></small>
         </div>
       </div></div>` : "";
 
   const especiais = g.especiais.length ? `
-    <div class="cat"><h3>Especial</h3>${g.especiais.map(e=>`
+    <div class="cat" id="sec-esp"><h3>Especial</h3><p class="info">Escolha o sabor do Vulcão.</p>${g.especiais.map(e=>`
       <div class="opt" data-kind="esp" data-tipo="${tab}" data-id="${e.id}">${head(e.p, e.n, e.s)}
         <div class="sel"><select class="sab" aria-label="Sabor do ${esc(e.n)}">
           <option value="">Escolha o sabor do bolo</option>${e.sabores.map(s=>`<option value="${s}">${s}</option>`).join("")}
-        </select></div>
+        </select><small class="msg" hidden></small></div>
       </div>`).join("")}</div>` : "";
 
+  const chips = [["sec-trad","Tradicionais"],["sec-cob","Com cobertura"],...(duas?[["sec-duas","Duas coberturas"]]:[]),...(especiais?[["sec-esp","Especial"]]:[])]
+    .map(([id,t])=>`<button type="button" class="chip" data-go="${id}">${t}</button>`).join("");
   $("#menu-list").innerHTML = `
-    <div class="cat"><h3>Tradicionais</h3>${trad}</div>
-    <div class="cat"><h3>Com cobertura</h3>${cob}</div>
+    <div class="jump" aria-label="Ir para">${chips}</div>
+    <div class="cat" id="sec-trad"><h3>Tradicionais (Sem cobertura)</h3><p class="info">Bolos sem cobertura. É só clicar em Adicionar.</p>${trad}</div>
+    <div class="cat" id="sec-cob"><h3>Com cobertura</h3><p class="info">Escolha a cobertura e, dentro dela, o sabor do bolo.</p>${cob}</div>
     ${duas}${especiais}`;
   refreshBadges();
 }
@@ -173,7 +177,7 @@ document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{
 // no card de duas coberturas, a 2ª não repete a 1ª
 $("#menu-list").addEventListener("change",e=>{
   const row=e.target.closest(".opt"); if(!row) return;
-  e.target.classList.remove("err");
+  e.target.classList.remove("err"); row.querySelectorAll(".msg").forEach(m=>m.hidden=true);
   if(row.dataset.kind==="duas" && e.target.classList.contains("c1")){
     const c2=row.querySelector(".c2"), keep=c2.value!==e.target.value?c2.value:"";
     c2.innerHTML=`<option value="">2ª cobertura</option>${opts(COBERTURAS,e.target.value)}`; c2.value=keep;
@@ -186,18 +190,26 @@ $("#menu-list").addEventListener("change",e=>{
 });
 
 $("#menu-list").addEventListener("click",e=>{
+  const go=e.target.closest("[data-go]");
+  if(go){ document.getElementById(go.dataset.go)?.scrollIntoView({behavior:"smooth",block:"start"}); return; }
   const st=e.target.closest(".act button[data-d]");
   if(st){ const key=rowKey(st.closest(".opt")); if(key) change(key,+st.dataset.d); return; }
   const btn=e.target.closest("button.add"); if(!btn) return;
   const row=btn.closest(".opt");
   // se faltar escolher sabor/cobertura, destaca o campo
   const falta=[".sab",".c1",".c2"].map(s=>row.querySelector(s)).find(s=>s&&!s.value);
-  if(falta){ falta.classList.add("err"); falta.focus(); return; }
+  if(falta){
+    falta.classList.add("err"); falta.focus();
+    const m=row.querySelector(".msg");
+    if(m){ m.textContent = falta.classList.contains("sab") ? "Escolha o sabor do bolo para adicionar." : falta.classList.contains("c1") ? "Escolha a 1ª cobertura." : "Escolha a 2ª cobertura."; m.hidden=false; }
+    return;
+  }
   change(rowKey(row),1);
 });
 
 /* ---- carrinho ---- */
 function change(key,d){
+  const c=$("#cnt"); c.classList.remove("bump"); void c.offsetWidth; c.classList.add("bump");
   cart[key]=Math.max(0,(cart[key]||0)+d); if(!cart[key]) delete cart[key];
   save(); refreshBadges(); update();
 }

@@ -165,9 +165,32 @@ body.has-cart .fab{display:none}
 .opt button.add{padding:9px 20px;border-radius:999px;background:var(--pink);color:#fff;font-weight:600;font-size:.85rem;transition:.15s}
 .opt button.add:hover{background:var(--pink-d)}
 .opt button.add.done{background:var(--olive)}
-.cnt-badge{font-size:.78rem;font-weight:600;color:var(--pink-d);white-space:nowrap}
 .opt .sel{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
 .opt select{flex:1 1 150px;min-width:0;font:inherit;font-size:.88rem;padding:9px 12px;border:2px solid var(--line);border-radius:999px;background:var(--blush);color:var(--brown)}
 .opt select:focus{outline:0;border-color:var(--pink)}
 .opt select.err{border-color:#c0392b;background:#fdecea}
-@media(max-width:440px){.opt .row1{flex-wrap:wrap;gap:8px 12px}.opt .name{flex:1 1 60%}.opt .act{margin-left:auto}}
+@media(max-width:560px){
+  .opt{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px}
+  .opt .row1{display:contents}
+  .opt .price{order:1}
+  .opt .name{order:2;flex:1 1 55%}
+  .opt .sel{order:3;flex-basis:100%;margin-top:0}
+  .opt .act{order:4;flex-basis:100%;justify-content:flex-start}
+  .opt button.add{min-height:44px;padding:10px 26px}
+  .opt select{min-height:44px}
+  .qty button{width:42px;height:42px}
+}
+
+/* navegação e ajuda no cardápio */
+.jump{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.chip{padding:8px 16px;border-radius:999px;background:#fff;border:2px solid var(--line);color:var(--brown-2);font-weight:600;font-size:.85rem;transition:.15s}
+.chip:hover{border-color:var(--pink);color:var(--pink-d)}
+.cat{scroll-margin-top:80px}
+.msg{flex-basis:100%;color:#c0392b;font-size:.82rem;font-weight:600}
+.msg[hidden]{display:none}
+.tab small{display:block;font-weight:400;font-size:.72rem;opacity:.8;line-height:1.2}
+.tab{line-height:1.25}
+.drawer-sub{font-size:.88rem;color:var(--brown-2);margin:-4px 0 12px}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.35)}100%{transform:scale(1)}}
+.cnt.bump,#cnt.bump{animation:bump .3s}
+.info{font-size:.85rem;color:var(--brown-2);background:var(--pink-l);border-radius:12px;padding:9px 14px;margin-bottom:12px}
