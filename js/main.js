@@ -6,7 +6,7 @@ const IMG = {
 };
 
 /* ======= CONFIGURAÇÕES (edite aqui) ======= */
-const WHATSAPP = "5511968103129";        // número com DDI+DDD
+const WHATSAPP = "5511958606867";        // número com DDI+DDD
 const INSTAGRAM = "https://www.instagram.com/tatacaseirinhos/"; // deixe vazio para ocultar
 
 // Coberturas disponíveis
