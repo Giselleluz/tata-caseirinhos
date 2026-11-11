@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tata Caseirinhos · Bolos caseiros</title>
+<meta name="description" content="Bolos caseiros e mini caseirinhos feitos com carinho. Monte seu pedido e envie pelo WhatsApp.">
+<link rel="icon" href="images/logo.webp" type="image/webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#topo" class="logo script"><img src="images/logo.webp" alt="Tata Caseirinhos"><span>Tata <b>Caseirinhos</b></span></a>
+    <nav class="nav-links">
+      <a href="#cardapio" class="hide-m">Cardápio</a>
+      <a href="#como" class="hide-m">Como pedir</a>
+      <a href="#sobre" class="hide-m">Sobre</a>
+      <a class="btn btn-wa" style="padding:9px 18px;font-size:.85rem" data-wa href="#" target="_blank" rel="noopener">WhatsApp</a>
+    </nav>
+  </div>
+</header>
+
+<main id="topo">
+<div class="hero">
+  <div class="wrap hero-in">
+    <div>
+      <span class="eyebrow">FEITO EM CASA, COM CARINHO</span>
+      <h1><span class="script">Bolos</span><span class="big">Caseiros</span></h1>
+      <p>Bolos fofinhos e mini caseirinhos para o café da tarde, o aniversário ou aquele agrado especial. Escolha seus favoritos e faça o pedido direto pelo WhatsApp.</p>
+      <div class="hero-btns">
+        <a href="#cardapio" class="btn btn-pink">Ver cardápio</a>
+        <a class="btn btn-line" data-wa href="#" target="_blank" rel="noopener">Falar no WhatsApp</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="circle"><img src="images/bolo.jpg" alt="Bolo caseiro inteiro, assado com folhas, em um prato branco"></div>
+      <div class="sticker">A partir de R$ 13</div>
+      <img class="badge" src="images/logo.webp" alt="Selo Tata Caseirinhos: bolos feitos com amor">
+    </div>
+  </div>
+  <svg class="wave" viewBox="0 0 1200 40" preserveAspectRatio="none"><path d="M0 20c100 30 200 30 300 0s200-30 300 0 200 30 300 0 200-30 300 0v20H0z"/></svg>
+</div>
+
+<section id="como">
+  <div class="wrap">
+    <div class="sec-title"><div class="script">Simples assim</div><h2>Como pedir</h2></div>
+    <div class="steps">
+      <div class="step"><i>1</i><h3>Escolha</h3><p>Monte seu pedido no cardápio abaixo, com as quantidades que quiser.</p></div>
+      <div class="step"><i>2</i><h3>Envie</h3><p>Preencha seus dados e o pedido já sai pronto no WhatsApp.</p></div>
+      <div class="step"><i>3</i><h3>Receba</h3><p>Combinamos a data, o pagamento e a retirada ou entrega por lá.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="cardapio" class="menu">
+  <div class="wrap">
+    <div class="sec-title"><div class="script">Nosso</div><h2>Cardápio</h2><p>Toque em “Adicionar” para montar seu pedido.</p></div>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" data-tab="bolos" aria-selected="true">Bolos Caseiros</button>
+      <button class="tab" role="tab" data-tab="mini" aria-selected="false">Mini Caseirinhos</button>
+    </div>
+    <div class="menu-grid">
+      <div id="menu-list"></div>
+      <aside class="menu-photo">
+        <div class="circle"><img id="menu-img" alt=""></div>
+        <p id="menu-cap"></p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="sobre">
+  <div class="wrap about">
+    <div class="circle"><img src="images/mini-bolo.jpg" alt="Mini bolo amarelo com cobertura de chocolate e raspas, na embalagem"></div>
+    <div>
+      <div class="script" style="font-size:2.4rem;color:var(--pink);line-height:1">Com amor</div>
+      <h2>Sabor de bolo de casa</h2>
+      <p>Cada bolo é feito sob encomenda, do jeitinho caseiro que a gente gosta: macio, saboroso e com cobertura generosa.</p>
+      <ul class="checks">
+        <li>Sabores tradicionais e com cobertura</li>
+        <li>Mini caseirinhos, perfeitos para presentear</li>
+        <li>Bolo Vulcão de cenoura ou chocolate</li>
+      </ul>
+      <a href="#cardapio" class="btn btn-pink">Fazer meu pedido</a>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:10px">
+  <div class="wrap">
+    <div class="cta">
+      <div class="script">Ficou com água na boca?</div>
+      <h2>Faça o seu pedido</h2>
+      <p>Chame no WhatsApp e garanta o seu.</p>
+      <a class="btn btn-wa" data-wa href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 32 32"><path d="M16 3C9 3 3.4 8.6 3.4 15.5c0 2.4.7 4.7 1.9 6.6L3.2 29l7.1-2.1c1.8 1 3.8 1.5 5.7 1.5 7 0 12.6-5.6 12.6-12.5S23 3 16 3zm0 22.8c-1.8 0-3.6-.5-5.1-1.4l-.4-.2-4.2 1.2 1.2-4.1-.3-.4a10.2 10.2 0 0 1-1.6-5.4C5.6 9.9 10.2 5.4 16 5.4s10.4 4.5 10.4 10.1S21.700 25.800 16 25.800zm5.700-7.600c-.3-.2-1.900-.9-2.200-1-.3-.1-.5-.2-.7.200-.2.300-.8 1-1 1.200-.2.200-.4.200-.7.100-.3-.2-1.400-.5-2.600-1.600-1-.9-1.600-1.900-1.800-2.200-.2-.3 0-.5.100-.6l.5-.6c.2-.2.200-.3.300-.5.100-.2.100-.4 0-.6l-1-2.300c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.100-.9.400-.3.300-1.200 1.200-1.200 2.800s1.200 3.300 1.400 3.500c.2.200 2.400 3.700 5.800 5.100.8.400 1.400.6 2 .7.800.3 1.600.2 2.200.1.700-.1 1.900-.8 2.200-1.500.3-.8.300-1.400.2-1.500-.1-.2-.3-.3-.6-.4z"/></svg>
+        Pedir pelo WhatsApp
+      </a>
+      <a id="insta-cta" class="btn btn-ig" href="#" target="_blank" rel="noopener" hidden>Acessar o Instagram</a>
+      <span class="num">(11) 95860-6867</span>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <img src="images/logo.webp" alt="Tata Caseirinhos" style="width:110px;height:110px;margin:0 auto 8px;border-radius:50%">
+  <div>Bolos caseiros feitos com carinho · Pedidos pelo WhatsApp (11) 95860-6867</div>
+  <div id="insta-wrap" hidden style="margin-top:6px"><a id="insta" href="#" target="_blank" rel="noopener">Siga no Instagram @tatacaseirinhos</a></div>
+</footer>
+
+<a class="fab" data-wa href="#" target="_blank" rel="noopener" aria-label="Chamar no WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16 3C9 3 3.4 8.6 3.4 15.5c0 2.4.7 4.7 1.9 6.6L3.2 29l7.1-2.1c1.8 1 3.8 1.5 5.7 1.5 7 0 12.6-5.6 12.6-12.5S23 3 16 3zm5.700 15.200c-.3-.2-1.900-.9-2.200-1-.3-.1-.5-.2-.7.200-.2.300-.8 1-1 1.200-.2.200-.4.200-.7.100-.3-.2-1.400-.5-2.600-1.600-1-.9-1.600-1.900-1.800-2.200-.2-.3 0-.5.100-.6l.5-.6c.2-.2.200-.3.300-.5.100-.2.100-.4 0-.6l-1-2.300c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.100-.9.400-.3.300-1.200 1.200-1.200 2.800s1.200 3.300 1.400 3.500c.2.200 2.400 3.700 5.800 5.100.8.400 1.400.6 2 .7.800.3 1.600.2 2.200.1.700-.1 1.900-.8 2.200-1.500.3-.8.300-1.400.2-1.500-.1-.2-.3-.3-.6-.4z"/></svg>
+</a>
+
+<div class="cartbar" id="cartbar"><button id="open-cart"><span><span class="cnt" id="cnt">0</span>Ver meu pedido</span><span id="bar-total">R$ 0,00</span></button></div>
+<div class="overlay" id="overlay"></div>
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Meu pedido">
+  <div class="drawer-h"><h3>Meu pedido</h3><button class="x" id="close-cart" aria-label="Fechar">✕</button></div>
+  <div id="lines" class="lines"></div>
+  <div class="total"><span>Total</span><span id="total">R$ 0,00</span></div>
+  <div class="field"><label for="f-nome">Seu nome</label><input id="f-nome" autocomplete="name" placeholder="Como podemos te chamar?"></div>
+  <div class="field"><label>Como prefere receber?</label>
+    <div class="seg">
+      <label><input type="radio" name="tipo" value="Retirada" checked><span>Retirada</span></label>
+      <label><input type="radio" name="tipo" value="Entrega"><span>Entrega</span></label>
+    </div>
+  </div>
+  <div class="field" id="end-wrap" hidden><label for="f-end">Endereço / bairro</label><input id="f-end" autocomplete="street-address" placeholder="Rua, número e bairro"></div>
+  <div class="field"><label for="f-data">Para quando você quer?</label><input id="f-data" placeholder="Ex.: sábado, 15/11, à tarde"></div>
+  <div class="field"><label for="f-obs">Observações (opcional)</label><textarea id="f-obs" rows="2" placeholder="Ex.: é para aniversário, escrever um nome..."></textarea></div>
+  <a class="btn btn-wa" id="send" href="#" target="_blank" rel="noopener" aria-disabled="true">Enviar pedido pelo WhatsApp</a>
+  <button class="copy" id="copy" type="button">Copiar texto do pedido</button>
+  <p class="hint">Valores conforme o cardápio. A confirmação e o pagamento são combinados pelo WhatsApp.</p>
+</div>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>
