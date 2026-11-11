@@ -1,6 +1,7 @@
 /* ======= FOTOS ======= */
 const IMG = {
   bolo:"images/bolo.jpg?v=2",
+  bolos:"images/bolos-cardapio.jpg",
   mini:"images/mini-bolo.jpg"
 };
 
@@ -27,7 +28,7 @@ const SABORES = [
 const MENU = {
   bolos: {
     prefix: "Bolo de ",
-    img: IMG.bolo, alt: "Bolo caseiro inteiro",
+    img: IMG.bolos, alt: "Bolo caseiro inteiro com cobertura branca e coco ralado",
     cap: "Bolos inteiros, feitos sob encomenda.",
     // preço do bolo COM cobertura (1 cobertura); nunca menor que o preço sem cobertura
     comCobertura: 35,
